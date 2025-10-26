@@ -2,7 +2,7 @@
 
 ## 🎯 Objectif principal
 
-Ce projet vise à créer un **chatbot conversationnel intelligent** qui permet aux vendeurs d'apprendre à utiliser l'application ADES **sans formation en personne**. Accessible, multilingue et intuitif, il facilite l'autonomie des utilisateurs, même peu alphabétisés.
+Ce projet vise à créer un **chatbot conversationnel intelligent** qui permet aux vendeurs d'apprendre à utiliser l'application Lemadio **sans formation en personne**. Accessible, multilingue et intuitif, il facilite l'autonomie des utilisateurs, même peu alphabétisés.
 
 ---
 

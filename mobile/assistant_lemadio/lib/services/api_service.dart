@@ -9,7 +9,7 @@ class ApiService {
   // - Si vous testez sur émulateur Android : http://10.0.2.2:3000
   // - Si vous testez sur appareil réel : http://VOTRE_IP_LOCAL:3000
   // - En production : https://votre-serveur.com
-  static const String baseUrl = 'http://10.85.5.103:3000';
+  static const String baseUrl = 'http://192.168.1.52:3000';
 
   /// Envoie un message au chatbot et retourne la réponse
   Future<Message> sendMessage(String userMessage) async {

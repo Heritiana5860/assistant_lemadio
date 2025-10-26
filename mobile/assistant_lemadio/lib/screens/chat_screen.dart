@@ -1,7 +1,9 @@
+import 'package:assistant_lemadio/widgets/settings_dialog.dart';
 import 'package:flutter/material.dart';
 import '../config/constants.dart';
 import '../models/message.dart';
 import '../services/api_service.dart';
+import '../services/tts_service.dart';
 import '../widgets/message_bubble.dart';
 import '../widgets/input_field.dart';
 import '../widgets/typing_indicator.dart';
@@ -10,7 +12,7 @@ import '../widgets/typing_indicator.dart';
 class ChatScreen extends StatefulWidget {
   final String? initialMessage;
 
-  const ChatScreen({Key? key, this.initialMessage}) : super(key: key);
+  const ChatScreen({super.key, this.initialMessage});
 
   @override
   State<ChatScreen> createState() => _ChatScreenState();
@@ -28,6 +30,9 @@ class _ChatScreenState extends State<ChatScreen> {
   void initState() {
     super.initState();
 
+    // Initialiser le service TTS
+    ttsService.initialize();
+
     // Si un message initial est fourni, l'envoyer automatiquement
     if (widget.initialMessage != null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -39,7 +44,13 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   void dispose() {
     _scrollController.dispose();
+    ttsService.stop(); // Arrêter toute lecture en cours
     super.dispose();
+  }
+
+  /// Affiche le dialog des paramètres TTS
+  void _showSettingsDialog() {
+    showDialog(context: context, builder: (context) => const SettingsDialog());
   }
 
   /// Envoie un message au chatbot
@@ -155,7 +166,7 @@ class _ChatScreenState extends State<ChatScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
             Text(
-              'Assistant ADES',
+              'Assistant Lemadio',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             Text(
@@ -165,6 +176,12 @@ class _ChatScreenState extends State<ChatScreen> {
           ],
         ),
         actions: [
+          // Bouton paramètres voix
+          IconButton(
+            icon: const Icon(Icons.settings_voice),
+            onPressed: _showSettingsDialog,
+            tooltip: 'Paramètres de la voix',
+          ),
           if (_messages.isNotEmpty)
             IconButton(
               icon: const Icon(Icons.delete_outline),
@@ -212,7 +229,7 @@ class _ChatScreenState extends State<ChatScreen> {
             Container(
               padding: const EdgeInsets.all(AppSizes.paddingLarge),
               decoration: BoxDecoration(
-                color: AppColors.primary.withOpacity(0.1),
+                color: AppColors.primary.withValues(alpha: 0.1),
                 shape: BoxShape.circle,
               ),
               child: const Icon(
@@ -233,7 +250,7 @@ class _ChatScreenState extends State<ChatScreen> {
             const SizedBox(height: AppSizes.paddingSmall),
 
             const Text(
-              'Posez votre première question sur l\'application ADES',
+              'Posez votre première question sur l\'application Lemadio',
               style: AppTextStyles.bodySmall,
               textAlign: TextAlign.center,
             ),
@@ -270,7 +287,7 @@ class _ChatScreenState extends State<ChatScreen> {
         decoration: BoxDecoration(
           color: AppColors.cardBackground,
           borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: AppColors.primary.withOpacity(0.3)),
+          border: Border.all(color: AppColors.primary.withValues(alpha: 0.3)),
         ),
         child: Text(
           text,

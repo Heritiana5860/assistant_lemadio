@@ -23,7 +23,7 @@ void main() {
 }
 
 class AdesChatbotApp extends StatelessWidget {
-  const AdesChatbotApp({Key? key}) : super(key: key);
+  const AdesChatbotApp({super.key});
 
   @override
   Widget build(BuildContext context) {

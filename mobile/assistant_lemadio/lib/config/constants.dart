@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Couleurs de l'application ADES
+/// Couleurs de l'application Lemadio ADES
 class AppColors {
   // Couleurs primaires ADES
   static const Color primary = Color(0xFF2E7D32); // Vert ADES
@@ -89,7 +89,7 @@ class AppStrings {
   // Écran d'accueil
   static const String welcomeTitle = 'Bienvenue !';
   static const String welcomeMessage =
-      'Je suis votre assistant pour apprendre à utiliser l\'application ADES. '
+      'Je suis votre assistant pour apprendre à utiliser l\'application Lemadio. '
       'Posez-moi toutes vos questions !';
 
   static const String startButton = 'Commencer';

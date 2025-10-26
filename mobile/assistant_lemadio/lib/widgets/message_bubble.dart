@@ -1,12 +1,56 @@
 import 'package:flutter/material.dart';
 import '../models/message.dart';
 import '../config/constants.dart';
+import '../services/tts_service.dart';
 
 /// Widget pour afficher un message dans le chat
-class MessageBubble extends StatelessWidget {
+class MessageBubble extends StatefulWidget {
   final Message message;
 
-  const MessageBubble({Key? key, required this.message}) : super(key: key);
+  const MessageBubble({super.key, required this.message});
+
+  @override
+  State<MessageBubble> createState() => _MessageBubbleState();
+}
+
+class _MessageBubbleState extends State<MessageBubble> {
+  bool isSpeaking = false;
+
+  @override
+  void initState() {
+    super.initState();
+    // Écouter les changements du service TTS
+    ttsService.addListener(_onTtsStateChanged);
+  }
+
+  @override
+  void dispose() {
+    ttsService.removeListener(_onTtsStateChanged);
+    super.dispose();
+  }
+
+  void _onTtsStateChanged() {
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  /// Gère la lecture/arrêt de la synthèse vocale
+  Future<void> _toggleSpeak() async {
+    if (ttsService.isSpeaking) {
+      debugPrint("🛑 Arrêt de la lecture");
+      await ttsService.stop();
+      setState(() {
+        isSpeaking = false;
+      });
+    } else {
+      debugPrint("▶️ Démarrage de la lecture");
+      await ttsService.speak(widget.message.text);
+      setState(() {
+        isSpeaking = true;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,20 +60,20 @@ class MessageBubble extends StatelessWidget {
         vertical: AppSizes.paddingSmall,
       ),
       child: Row(
-        mainAxisAlignment: message.isUser
+        mainAxisAlignment: widget.message.isUser
             ? MainAxisAlignment.end
             : MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Avatar pour le bot (à gauche)
-          if (!message.isUser) _buildAvatar(),
+          if (!widget.message.isUser) _buildAvatar(),
 
           const SizedBox(width: AppSizes.paddingSmall),
 
           // Bulle de message
           Flexible(
             child: Column(
-              crossAxisAlignment: message.isUser
+              crossAxisAlignment: widget.message.isUser
                   ? CrossAxisAlignment.end
                   : CrossAxisAlignment.start,
               children: [
@@ -40,22 +84,22 @@ class MessageBubble extends StatelessWidget {
                     vertical: AppSizes.paddingSmall + 4,
                   ),
                   decoration: BoxDecoration(
-                    color: message.isUser
+                    color: widget.message.isUser
                         ? AppColors.userMessage
                         : AppColors.botMessage,
                     borderRadius: BorderRadius.only(
                       topLeft: const Radius.circular(AppSizes.borderRadius),
                       topRight: const Radius.circular(AppSizes.borderRadius),
                       bottomLeft: Radius.circular(
-                        message.isUser ? AppSizes.borderRadius : 4,
+                        widget.message.isUser ? AppSizes.borderRadius : 4,
                       ),
                       bottomRight: Radius.circular(
-                        message.isUser ? 4 : AppSizes.borderRadius,
+                        widget.message.isUser ? 4 : AppSizes.borderRadius,
                       ),
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
+                        color: Colors.black.withValues(alpha: 0.1),
                         blurRadius: 4,
                         offset: const Offset(0, 2),
                       ),
@@ -66,16 +110,61 @@ class MessageBubble extends StatelessWidget {
                     children: [
                       // Texte du message
                       Text(
-                        message.text,
-                        style: message.isUser
+                        widget.message.text,
+                        style: widget.message.isUser
                             ? AppTextStyles.messageUser
                             : AppTextStyles.messageBot,
                       ),
 
-                      // Badge RAG (si applicable)
-                      if (!message.isUser && message.ragUsed) ...[
-                        const SizedBox(height: 4),
-                        _buildRagBadge(),
+                      // Bouton speaker et badge pour les messages du bot
+                      if (!widget.message.isUser) ...[
+                        const SizedBox(height: 8),
+                        Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            // Badge RAG (si applicable)
+                            if (widget.message.ragUsed) ...[
+                              _buildRagBadge(),
+                              const SizedBox(width: 8),
+                            ],
+                            // Bouton speaker
+                            InkWell(
+                              onTap: _toggleSpeak,
+                              borderRadius: BorderRadius.circular(16),
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 8,
+                                  vertical: 4,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: AppColors.primary.withValues(
+                                    alpha: 0.1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Icon(
+                                      isSpeaking ? Icons.stop : Icons.volume_up,
+                                      size: 16,
+                                      color: AppColors.primary,
+                                    ),
+                                    const SizedBox(width: 4),
+                                    Text(
+                                      isSpeaking ? 'Arrêter' : 'Écouter',
+                                      style: const TextStyle(
+                                        fontSize: 12,
+                                        color: AppColors.primary,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ],
                     ],
                   ),
@@ -84,7 +173,7 @@ class MessageBubble extends StatelessWidget {
                 // Heure du message
                 const SizedBox(height: 4),
                 Text(
-                  _formatTime(message.timestamp),
+                  _formatTime(widget.message.timestamp),
                   style: AppTextStyles.caption,
                 ),
               ],
@@ -94,7 +183,7 @@ class MessageBubble extends StatelessWidget {
           const SizedBox(width: AppSizes.paddingSmall),
 
           // Avatar pour l'utilisateur (à droite)
-          if (message.isUser) _buildAvatar(),
+          if (widget.message.isUser) _buildAvatar(),
         ],
       ),
     );
@@ -106,11 +195,13 @@ class MessageBubble extends StatelessWidget {
       width: 32,
       height: 32,
       decoration: BoxDecoration(
-        color: message.isUser ? AppColors.userMessage : AppColors.primary,
+        color: widget.message.isUser
+            ? AppColors.userMessage
+            : AppColors.primary,
         shape: BoxShape.circle,
       ),
       child: Icon(
-        message.isUser ? Icons.person : Icons.smart_toy,
+        widget.message.isUser ? Icons.person : Icons.smart_toy,
         color: Colors.white,
         size: AppSizes.iconSizeSmall,
       ),
@@ -122,7 +213,7 @@ class MessageBubble extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
       decoration: BoxDecoration(
-        color: AppColors.success.withOpacity(0.2),
+        color: AppColors.success.withValues(alpha: 0.2),
         borderRadius: BorderRadius.circular(4),
       ),
       child: Row(

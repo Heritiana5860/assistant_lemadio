@@ -1,19 +1,70 @@
 # 📘 Documentation Complète de l'Application Lemadio
 
-## 🎯 Objectif de l'Assistant Lemadio
-### Qui suis-je ?
-Je suis **Assistant Lemadio**, un assistant conversationnel conçu pour accompagner les vendeurs des points de vente ADES dans l’utilisation optimale de l’application mobile **Lemadio**.
+## 🤖 Présentation de l'Assistant Lemadio
 
-### Quel est mon rôle ?
-Ma mission principale est de **former, guider et assister** les vendeurs afin qu’ils puissent utiliser l’application Lemadio sans difficulté. Je suis disponible à tout moment pour répondre aux questions liées à l’utilisation de l’application.
+## 🧠 À propos de l'application Assistant Lemadio
 
-### Que suis-je capable de faire ?
-Fournir des **explications claires** sur les fonctionnalités de Lemadio.
-- Aider à résoudre les **problèmes courants** rencontrés par les vendeurs.
+### 🆔 Qui suis-je ?
+
+### Qui est Assistant Lemadio ?
+
+**Assistant Lemadio** est un assistant conversationnel intelligent conçu pour accompagner les vendeurs des points de vente ADES dans l’utilisation de l’application mobile **Lemadio**.  
+⚠️ À ne pas confondre avec **Lemadio**, qui est l’application principale utilisée pour enregistrer les ventes, gérer les stocks et suivre les performances commerciales.
+
+---
+
+### 🎯 Quel est mon rôle ?
+
+Mon rôle est d’agir comme **formateur virtuel** et **assistant technique** pour les utilisateurs de Lemadio. Je facilite la prise en main de l’application, réponds aux questions fréquentes et guide les vendeurs dans leurs tâches quotidiennes.
+
+---
+
+### 📌 Quelle est ma mission ?
+
+Ma mission est de :
+
+- **Former** les vendeurs à l’utilisation correcte de l’application Lemadio.
+- **Répondre aux questions** liées aux fonctionnalités, procédures et bonnes pratiques.
+- **Assister en temps réel** les utilisateurs confrontés à des difficultés techniques ou fonctionnelles.
+
+Je suis disponible à tout moment pour garantir une utilisation fluide, autonome et efficace de Lemadio.
+
+---
+
+### 🔁 Autres formulations possibles
+
+Pour améliorer la reconnaissance par le système RAG, voici quelques variantes de la même question :
+
+- Assistant Lemadio, c’est quoi ?
+- Quel est le rôle d’Assistant Lemadio ?
+- Quelle est la mission de l’assistant virtuel ?
+- Assistant Lemadio est-il un chatbot ?
+- Est-ce que Assistant Lemadio est lié à Lemadio ?
+
+---
+
+### ⚙️ Que suis-je capable de faire ?
+
+Voici ce que je peux faire :
+
+- Fournir des **explications claires et contextualisées** sur les fonctionnalités de Lemadio.
 - Proposer des **étapes détaillées** pour accomplir une action dans l’application.
-- Répondre aux **questions fréquentes** sur l’authentification, la gestion des ventes, la synchronisation des données, etc.
+- Aider à résoudre les **problèmes courants** rencontrés par les vendeurs.
+- Répondre aux **questions fréquentes** sur :
+  - L’authentification
+  - La gestion des ventes
+  - La synchronisation des données
+  - Les remplacements sous garantie
+  - Les statistiques de performance
 
-Je suis conçu pour rendre l’expérience utilisateur plus fluide, autonome et efficace.
+Je suis conçu pour rendre l’expérience utilisateur plus simple, plus rapide et plus autonome.
+
+## 📱 À propos de l'application Lemadio
+
+**Lemadio** est l’application mobile officielle utilisée par les vendeurs des points de vente **ADES**.  
+Elle permet d’enregistrer les ventes, gérer les stocks, effectuer des remplacements sous garantie et consulter les statistiques de performance.
+
+⚠️ À ne pas confondre avec **Assistant Lemadio**, qui est un chatbot conçu pour aider les vendeurs à bien utiliser l’application Lemadio.
 
 ## 🔐 Page d’authentification
 
@@ -64,7 +115,7 @@ En cas d’oubli du mot de passe, le vendeur peut initier une procédure de réi
 
 ### 1. Saisir le nom d’utilisateur
 
-Dans le champ prévu à cet effet, entrez le nom d’utilisateur fourni par l’administrateur. Ce nom correspond généralement au nom de votre point de vente.  
+Dans le champ prévu à cet effet, entrez le nom d’utilisateur fourni par l’administrateur. Ce nom correspond généralement au nom de votre point de vente.
 **Exemple** : pour le point de vente de Fianarantsoa, le nom d’utilisateur sera `Vente Fianarantsoa`.
 
 ### 2. Saisir le mot de passe
@@ -77,162 +128,306 @@ Une fois les informations saisies, cliquez sur le bouton « Se connecter » 
 
 ---
 
-## 2. Vue d'ensemble de l'interface
+## 🧭 Vue d’ensemble de l’interface après une connexion réussie
 
-### Description générale
+Après une authentification réussie, l’interface de l’application Lemadio se compose généralement de trois zones principales :
 
-Une fois connecté avec succès, le vendeur est redirigé vers la page principale dédiée à la gestion des ventes.
+1. **L’en-tête** (en haut de l’écran)
+2. **Le contenu principal** (au centre, selon la section active)
+3. **La barre de navigation inférieure** (en bas de l’écran)
 
-### Composants de l'interface
+Par défaut, le vendeur est redirigé vers la page principale dédiée à la gestion des ventes. Cette interface regroupe les fonctionnalités essentielles pour :
 
-#### 🔝 Entête
-
-- **Logo ADES** affiché à gauche.
-- **Zone utilisateur** à droite :
-  - Icône circulaire suivi du nom d'utilisateur du vendeur.
-  - Icône à trois points verticaux ouvrant un menu contextuel avec les options suivantes :
-    - **Mode** : Permet de basculer entre le mode clair et le mode sombre.
-    - **Synchroniser** : Envoie les données locales non encore transmises au serveur ADES.
-    - **Catalogue de prix** : Affiche les tarifs associés à chaque type de réchaud ou poêle.
-    - **Changer le mot de passe** : Accès à la modification du mot de passe.
-    - **Déconnexion** : Permet de quitter l'application.
-
-#### 📄 Contenu principal (variable selon la barre de navigation inférieure)
-
-##### 1. Page des ventes
-
-Affiche les ventes réalisées par le vendeur. Si aucune vente n'a été enregistrée, un message indique : "Aucune vente trouvée."
-
-**Éléments de la page :**
-
-- **Barre de recherche** (en haut à gauche) : Recherche par type de réchaud, nom du client, numéro de facture ou contact.
-- **Icône de filtrage** (à droite de la barre) : Permet d'afficher soit les ventes synchronisées avec le serveur ADES, soit celles encore stockées localement.
-- **Liste des ventes** : Chaque vente est présentée sous forme de carte.
-
-**Détails de chaque carte :**
-
-- **Statut de synchronisation** :
-  - "Synchronisé" (texte vert avec bordure arrondie) : Donnée envoyée au serveur ou à Salesforce.
-  - "Non synchronisé" (texte orange) : Donnée encore locale.
-- **Bouton "Annuler"** (en haut à droite, bordure rouge) : Permet d'annuler la vente localement et à distance.
-- **Informations affichées** : Nom complet du client, numéro de facture, date de vente, numéro du réchaud.
-- **Icône flèche vers le bas** : Déploie la carte pour afficher des détails supplémentaires (contact, adresse, région, fokontany).
-
-##### 2. Page des stocks
-
-La page "Stock" contient plusieurs fonctionnalités essentielles pour la gestion des réchauds :
-
-- 🔍 Barre de recherche (en haut de la page)
-  - Permet de rechercher un réchaud par type, numéro, ou type + numéro pour plus de précision.
-  - Exemple de recherche efficace : OLI-c T123456, OLI-60b 258963.
-- 🧭 Menu de navigation (sous la barre de recherche)
-  Ce menu contient deux onglets principaux :
-  1. Stocks actuels
-
-
-      - C’est l’onglet affiché par défaut à l’ouverture de la page "Stock".
-      - Il affiche tous les réchauds disponibles pour le vendeur ou le point de vente.
-      - Les réchauds sont :
-        - Encadrés en vert s’ils sont disponibles pour une nouvelle vente.
-        - Encadrés en rouge avec un badge "vendu" s’ils sont déjà associés à une vente.
-  2. Numéro facture
-  - Situé à droite de l’onglet "Stocks actuels".
-  - Permet de visualiser les numéros de facture liés au vendeur ou au point de vente.
-  - Les numéros sont :
-    - Encadrés en vert s’ils sont disponibles pour une nouvelle vente.
-    - Encadrés en rouge avec un badge "vendu" s’ils sont déjà utilisés dans une vente.
-
-##### 3. Page des remplacements sous garantie
-
-Accès à la gestion des remplacements de réchauds sous garantie.
-
-##### 4. Page des statistiques de vente
-
-Visualisation graphique des performances commerciales du vendeur.
-
-#### 📱 Barre de navigation inférieure
-
-Permet de naviguer entre les différentes sections de l'application :
-
-1. **Ventes** : Icône avec badge indiquant le nombre de ventes non synchronisées.
-2. **Stocks** : Affiche les stocks disponibles.
-3. **Remplacements sous garantie** : Gestion des remplacements.
-4. **Statistiques de vente** : Visualisation des performances.
+- Suivre les ventes réalisées
+- Gérer les stocks de réchauds
+- Effectuer des remplacements sous garantie
+- Visualiser les statistiques de performance
 
 ---
 
-## 3. Créer une vente
+### 🧩 Composants de l’interface
 
-### Processus complet
+#### 🔝 En-tête
 
-#### Étape 1 : Accéder à la création de vente
+L’en-tête est affiché en haut de l’écran et contient :
 
-Sur la page de vente :
+- **Logo ADES** : situé à gauche, il permet d’identifier visuellement l’application.
+- **Zone utilisateur** : située à droite, elle comprend :
+  - Une icône circulaire suivie du nom d’utilisateur du vendeur.
+  - Une icône à trois points verticaux ouvrant un menu contextuel avec les options suivantes :
+    - **Mode** : bascule entre le mode clair et le mode sombre.
+    - **Synchroniser** : envoie les données locales non encore transmises au serveur ADES.
+    - **Catalogue de prix** : affiche les tarifs des différents types de réchauds et poêles.
+    - **Changer le mot de passe** : permet de modifier le mot de passe utilisateur.
+    - **Déconnexion** : permet de quitter l’application.
 
-- Cliquez le bouton rond vert avec un icône plus (+) dedans, en haut à droite de la barre de navigation inférieure.
-- Deux menus vont s'afficher :
-  - **"Vente revendeur"** : Vente aux revendeurs de l'ADES
-  - **"Vente directe"** : Vente directe aux clients
+---
 
-### Processus pour vente directe
+#### 📄 Contenu principal
 
-#### Étape 2 : Page d'information client
+Le contenu affiché varie selon la section sélectionnée via la barre de navigation inférieure.
 
-Une formulaire permet de remplir l'information client :
+##### 🛒 1. Page des ventes
 
-**Champs du formulaire :**
+Cette page affiche l’historique des ventes enregistrées par le vendeur.  
+Si aucune vente n’a encore été effectuée, le message suivant s’affiche :  
+**« Aucune vente trouvée. »**
 
-- **Liste déroulante "Catégorie"** :
+**Éléments de la page :**
 
-  - Hotel
-  - Ecole
-  - Restaurant
-  - NGO
-  - Hospital
-  - Microbusiness
-  - Prison
-  - Private
+- **Barre de recherche** : située en haut à gauche, elle permet de rechercher une vente par type de réchaud, nom du client, numéro de facture ou contact.
+- **Icône de filtrage** : située à droite de la barre, elle permet de filtrer les ventes synchronisées ou non avec le serveur ADES.
+- **Liste des ventes** : chaque vente est présentée sous forme de carte.
 
-- **Liste déroulante "Cluster"** :
+**Détails d’une carte de vente :**
 
-  - Charcoal
-  - Wood
-  - Solar + OLI-b
-  - Solar + OLI-c
+- **Statut de synchronisation** :
+  - _Synchronisé_ (texte vert, bordure arrondie) : la vente a été envoyée au serveur ou à Salesforce.
+  - _Non synchronisé_ (texte orange) : la vente est encore stockée localement.
+- **Bouton "Annuler"** : situé en haut à droite de la carte, avec une bordure rouge, il permet d’annuler la vente localement et à distance.
+- **Informations affichées** : nom complet du client, numéro de facture, date de vente, numéro du réchaud.
+- **Icône flèche vers le bas** : permet de déployer la carte pour afficher des détails supplémentaires (contact, adresse, région, fokontany).
 
-- **Champ Mme/Mr** : nom du client
-- **Champ Surnom** : prénom du client
-- **Contact** : numéro de téléphone
-- **Adresse** : adresse complète
+---
 
-- **Champ Localisation** :
+##### 📦 2. Page des stocks
 
-  - Cliquez l'icône de localisation dans le formulaire côté droit, cela ouvrira une carte OpenStreetMap
+Cette page permet de consulter et gérer les réchauds disponibles au point de vente.
 
-  **Page carte :**
+**Fonctionnalités principales :**
 
-  - Cette carte permet de récupérer la longitude et latitude du client
-  - Elle prend automatiquement la position actuelle de l'appareil pour aider le vendeur à tracer l'endroit du client et place un petit icône de localisation en rouge sur la carte
-  - Une barre de recherche en haut permet de chercher l'endroit du client par fokontany, région, district, commune
-  - Saisissez l'endroit et cliquez l'icône recherche côté droit
-  - En faisant la recherche, l'app propose plusieurs endroits en montrant la province, région, district, commune, fokontany
-  - Cliquez sur l'endroit exact du client, la carte redirigera vers l'endroit indiqué par le petit icône
-  - Le vendeur peut zoomer la carte, scroller et cliquer partout sur la carte pour avoir l'endroit exact du client
-  - Validez la sélection avec le bouton bleu en bas
-  - Après validation, les champs (localisation, région, district, commune, fokontany) seront remplis automatiquement
+- **Barre de recherche** : située en haut, elle permet de rechercher un réchaud par type, numéro ou combinaison des deux.  
+  _Exemples_ : `OLI-c T123456`, `OLI-60b 258963`.
 
-  ⚠️ **Note importante** : Il faut bien vérifier les champs remplis automatiquement car parfois la carte ne trouve pas la commune, le district ou le fokontany et affiche "Non spécifié". Le vendeur peut remplir manuellement dans ce cas.
+- **Menu de navigation** : situé sous la barre de recherche, il contient deux onglets :
 
-- **CIN recto** : facultatif, dédié pour capturer l'image du CIN recto du client
-- **CIN verso** : facultatif, dédié pour capturer l'image du CIN verso du client
+  1. **Stocks actuels**
 
-- Cliquez le bouton **"Valider"** pour passer à la page suivante.
+     - Onglet affiché par défaut.
+     - Affiche tous les réchauds disponibles pour le vendeur.
+     - Réchauds encadrés en :
+       - **Vert** : disponibles pour une nouvelle vente.
+       - **Rouge** avec badge _vendu_ : déjà associés à une vente.
 
-#### Étape 3 : Sélectionner le numéro de facture
+  2. **Numéros de facture**
+     - Permet de visualiser les numéros de facture liés au vendeur.
+     - Numéros encadrés en :
+       - **Vert** : disponibles pour une nouvelle vente.
+       - **Rouge** avec badge _vendu_ : déjà utilisés.
+
+---
+
+##### 🔄 3. Page des remplacements sous garantie
+
+Cette section permet de gérer les remplacements de réchauds couverts par la garantie, en lien avec les ventes précédemment enregistrées.
+
+---
+
+##### 📊 4. Page des statistiques de vente
+
+Affiche des graphiques et indicateurs de performance commerciale, permettant au vendeur de suivre ses résultats.
+
+---
+
+#### 📱 Barre de navigation inférieure
+
+Cette barre permet de naviguer entre les différentes sections de l’application :
+
+1. **Ventes** : icône avec badge indiquant le nombre de ventes non synchronisées.
+2. **Stocks** : accès à la gestion des réchauds disponibles.
+3. **Remplacements sous garantie** : suivi des réchauds remplacés.
+4. **Statistiques de vente** : visualisation des performances commerciales.
+
+---
+
+## 🛒 Création d’une vente
+
+### 📍 Accès à la page de vente
+
+Pour créer une vente, le vendeur doit se trouver sur la **page des ventes**, qui s’ouvre automatiquement après une connexion réussie.
+
+---
+
+### 🧭 Étapes pour initier une vente
+
+1. Cliquez sur le **bouton rond vert** avec une icône « + », situé en haut à droite de la barre de navigation inférieure.
+2. Deux options s’affichent :
+   - **Vente revendeur** : vente destinée aux revendeurs ADES.
+   - **Vente directe** : vente directe aux clients finaux.
+
+---
+
+## 🔄 Processus de vente directe
+
+En sélectionnant **Vente directe**, le vendeur est redirigé vers la **page d’information client**, où il doit renseigner les données du client.
+
+---
+
+### 🧑‍💼 Page d’information client
+
+#### Champs à compléter :
+
+1. **Sélectionner une catégorie** : liste déroulante pour choisir le type de client.  
+   Options disponibles :
+
+   - Private (client individuel)
+   - Hotel
+   - Ecole
+   - NGO
+   - Restaurant
+   - Hopital
+   - Microbusiness
+   - Prison
+
+2. **Sélectionner un cluster** : liste déroulante pour définir le type de réchaud.  
+   Options :
+
+   - Charcoal
+   - Wood
+   - Solar + OLI-b
+   - Solar + OLI-c
+
+3. **Mme/Mr** : nom du client
+4. **Surnom** : prénom du client
+5. **Contact** : numéro de téléphone
+6. **Adresse** : adresse complète
+
+7. **Localisation** :
+   - Cliquez sur l’icône de localisation à droite du formulaire.
+   - Une carte OpenStreetMap s’ouvre pour définir la position du client.
+
+#### 🗺️ Fonctionnement de la carte :
+
+- La carte récupère automatiquement la position actuelle de l’appareil.
+- Une barre de recherche permet de trouver un lieu par fokontany, région, district ou commune.
+- Cliquez sur l’endroit exact pour placer un marqueur rouge.
+- Validez avec le bouton bleu en bas.
+- Les champs de localisation sont remplis automatiquement.
+
+⚠️ **Note** : Vérifiez les champs auto-remplis. Si certains sont marqués « Non spécifié », remplissez-les manuellement.
+
+8. **CIN recto** : facultatif, capture de la face avant du CIN
+9. **CIN verso** : facultatif, capture de la face arrière du CIN
+
+10. Cliquez sur **Valider** pour passer à la page suivante.
+
+⚠️ **Note** : Les champs obligatoires doivent être correctement remplis pour poursuivre.
+
+---
+
+### 🧾 Page de sélection du numéro de facture
+
+- Barre de recherche en haut pour filtrer les numéros disponibles.
+- Liste des numéros de facture affichée en dessous.
+- Le nombre total est indiqué en haut : `Résultats (XX)`.
+- Le vendeur peut sélectionner **un seul numéro** par vente.
+- Une fois sélectionné, le bouton **Valider** apparaît pour passer à la vérification.
+
+---
+
+### ✅ Page de vérification des informations client
+
+Cette page permet de confirmer les données saisies avec le client.
+
+#### En-tête :
+
+- **Numéro de facture** : en haut à gauche
+- **Date de vente** : en haut à droite
+
+#### Informations à vérifier :
+
+- Mme/Mr : nom
+- Surnom : prénom
+- Numéro : téléphone
+- Adresse : adresse complète
+- Région, District, Commune, Fokontany
+
+⚠️ **Note** : Si tout est correct, cliquez sur **Valider** pour passer au scan du réchaud.  
+En cas d’erreur, utilisez le bouton retour ou l’icône « ← » pour corriger les données.
+
+---
+
+### 🔍 Page de scan du réchaud
+
+- Cliquez sur le **bouton rond vert** dans le cadre jaune pour lancer le scanner.
+- Scannez le **code-barres** du réchaud.
+- Le système vérifie si le numéro scanné existe dans le stock du vendeur.
+  - Si oui : le type + numéro s’affiche.
+  - Si non : un message d’erreur clair est affiché.
+
+#### Tableau récapitulatif :
+
+- Type de réchaud
+- Prix unitaire
+- Quantité
+- Total
+
+Le vendeur peut scanner plusieurs réchauds, même de types différents.
+
+⚠️ **Note** : Le prix dépend de la zone géographique du client.  
+Zones disponibles :
+
+- Zone forte
+- Zone moyenne
+- Zone LNOB
+
+---
+
+### 🛡️ Page des conditions de garantie
+
+Conditions affichées :
+
+- Garantie d’un an sur le bon fonctionnement.
+- Exclusion des dommages dus à une mauvaise utilisation.
+- Garantie limitée à l’argile.
+- Grilles supplémentaires disponibles gratuitement sur présentation du reçu.
+- Les certificats CO₂ restent la propriété d’ADES.
+
+#### Signature du client :
+
+- Cochez la case « J’accepte de céder le droit de ce dossier ».
+- Un cadre de signature s’affiche en bas.
+- Le client signe dans le **signature pad**.
+- Une icône poubelle permet d’effacer et recommencer.
+
+Cliquez sur **Enregistrer** pour finaliser la vente.
+
+---
+
+### 🌐 Synchronisation des données
+
+⚠️ **Important** : Une connexion Internet est requise pour envoyer la vente vers Salesforce.
+
+- En cas d’absence de connexion, les données sont enregistrées localement.
+- Synchronisez dès que possible pour éviter toute perte.
+
+#### Pour synchroniser :
+
+1. Accédez à la page des ventes.
+2. Vérifiez le statut des cartes :
+   - **Non synchronisé** (orange) = données locales.
+3. Cliquez sur les **trois points verticaux** dans l’en-tête.
+4. Sélectionnez **Synchroniser** pour envoyer les données.
+
+### Comment savoir si une vente est synchronisée ?
+
+- **Synchronisé** : Badge vert avec le texte "Synchronisé"
+- **Non synchronisé** : Badge orange avec le texte "Non synchronisé"
+- Le badge sur l'icône "Ventes" dans la barre de navigation indique le nombre de ventes non synchronisées
+
+
+
+
+
+## Processus pour vente revendeur
+
+C'est la vente dedié au revendeur d'ADES. C'est à dire, des boutiques ou autre qui revende les réchauds avec des prix différente. Ils font un approvisionnement chez le point de vente ADES puis revendre les réchauds. L'application Lemadio peut gerer aussi la vente revendeur en chosisant l'option "vente revendeur".
+
+### Étape 3 : Sélectionner le numéro de facture
 
 Cette page affiche la liste des numéros de facture liés au centre de vente. Il suffit de sélectionner un numéro puis cliquer le bouton valider.
 
-#### Étape 4 : Page de vérification d'information client
+### Étape 4 : Page de vérification d'information client
 
 Vérifiez toutes les informations saisies avant de continuer.
 
@@ -318,25 +513,6 @@ L'ADES commercialise différents types de réchauds et poêles :
 
 ---
 
-## 6. Synchronisation des données
-
-### Qu'est-ce que la synchronisation ?
-
-La synchronisation est le processus d'envoi des données locales (ventes, stocks) vers le serveur ADES et Salesforce.
-
-### Quand synchroniser ?
-
-- **Automatique** : L'application tente de synchroniser automatiquement lorsqu'une connexion internet est disponible
-- **Manuel** : Vous pouvez forcer la synchronisation via le menu (icône trois points → "Synchroniser")
-
-### Comment savoir si une vente est synchronisée ?
-
-- **Synchronisé** : Badge vert avec le texte "Synchronisé"
-- **Non synchronisé** : Badge orange avec le texte "Non synchronisé"
-- Le badge sur l'icône "Ventes" dans la barre de navigation indique le nombre de ventes non synchronisées
-
----
-
 ## 7. Déconnexion
 
 **Étapes pour se déconnecter :**
@@ -354,10 +530,8 @@ La synchronisation est le processus d'envoi des données locales (ventes, stocks
 | ----------------------------- | ----------------------------- | ------------------------------------------------ |
 | "Connexion perdue"            | Pas d'internet                | Vérifiez votre connexion WiFi ou données mobiles |
 | "Identifiants incorrects"     | Mauvais login ou mot de passe | Vérifiez votre nom d'utilisateur et mot de passe |
-| "Stock insuffisant"           | Pas assez de réchauds         | Contactez le responsable du point de vente       |
 | "Vente non enregistrée"       | Erreur serveur                | Vérifiez la connexion ou contactez le support    |
 | "Réchaud déjà vendu"          | Réchaud scanné déjà vendu     | Vérifiez le numéro du réchaud                    |
-| "Numéro de facture invalide"  | Facture déjà utilisée         | Sélectionnez un autre numéro de facture          |
 | "Localisation introuvable"    | GPS désactivé                 | Activez le GPS de l'appareil                     |
 | "Code de confirmation expiré" | 10 minutes dépassées          | Demandez un nouveau code à l'administrateur      |
 
@@ -373,15 +547,6 @@ La synchronisation est le processus d'envoi des données locales (ventes, stocks
 - Redémarrez le téléphone
 - Vérifiez l'espace de stockage disponible
 - Réinstallez l'application si nécessaire
-
-### La vente n'est pas enregistrée
-
-**Solutions :**
-
-- Vérifiez que vous avez cliqué sur "Enregistrer"
-- Vérifiez que tous les champs obligatoires sont remplis
-- Vérifiez la connexion internet
-- Si la vente est "Non synchronisée", elle sera envoyée automatiquement quand la connexion reviendra
 
 ### Le scanner ne fonctionne pas
 
@@ -415,7 +580,6 @@ La synchronisation est le processus d'envoi des données locales (ventes, stocks
 
 - Vérifiez votre connexion internet
 - Attendez quelques minutes et réessayez
-- Utilisez le menu "Synchroniser" manuellement
 - Contactez le support si le problème persiste
 
 ---
@@ -426,10 +590,10 @@ La synchronisation est le processus d'envoi des données locales (ventes, stocks
 R : Non, pas directement dans l'application. Contactez le responsable du point de vente pour toute modification.
 
 **Q : Quel est le délai de confirmation d'une vente ?**
-R : La vente est enregistrée instantanément sur Salesforce si vous avez une connexion internet. Sinon, elle sera synchronisée automatiquement plus tard.
+R : La vente est enregistrée instantanément sur Salesforce si vous avez une connexion internet. Sinon, le vendeur le synchronisé manuelement plus tard.
 
 **Q : Puis-je vendre un réchaud sans connexion internet ?**
-R : Oui, la vente sera enregistrée localement et synchronisée automatiquement dès que la connexion internet sera disponible.
+R : Oui, la vente sera enregistrée localement et synchronisée manuelement par le venteur dès que la connexion internet sera disponible.
 
 **Q : Comment voir mes ventes non synchronisées ?**
 R : Le badge sur l'icône "Ventes" dans la barre de navigation indique le nombre. Vous pouvez aussi utiliser le filtre dans la page des ventes.
