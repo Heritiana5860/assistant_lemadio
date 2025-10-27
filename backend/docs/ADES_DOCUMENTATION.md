@@ -115,8 +115,8 @@ En cas d’oubli du mot de passe, le vendeur peut initier une procédure de réi
 
 ### 1. Saisir le nom d’utilisateur
 
-Dans le champ prévu à cet effet, entrez le nom d’utilisateur fourni par l’administrateur. Ce nom correspond généralement au nom de votre point de vente.
-**Exemple** : pour le point de vente de Fianarantsoa, le nom d’utilisateur sera `Vente Fianarantsoa`.
+Dans le champ prévu à cet effet, entrez le nom d’utilisateur fourni par l’administrateur. Ce nom correspond généralement au nom de votre centre de vente.
+**Exemple** : pour le centre de vente de Fianarantsoa, le nom d’utilisateur sera `Vente Fianarantsoa`.
 
 ### 2. Saisir le mot de passe
 
@@ -192,7 +192,7 @@ Si aucune vente n’a encore été effectuée, le message suivant s’affiche :
 
 ##### 📦 2. Page des stocks
 
-Cette page permet de consulter et gérer les réchauds disponibles au point de vente.
+Cette page permet de consulter et gérer les réchauds disponibles au centre de vente.
 
 **Fonctionnalités principales :**
 
@@ -349,11 +349,27 @@ En cas d’erreur, utilisez le bouton retour ou l’icône « ← » pour corrig
 
 ### 🔍 Page de scan du réchaud
 
-- Cliquez sur le **bouton rond vert** dans le cadre jaune pour lancer le scanner.
+- Cliquez le bouton arrondi dans le cadre jaune en bas à droite pour lancer le scanner
 - Scannez le **code-barres** du réchaud.
 - Le système vérifie si le numéro scanné existe dans le stock du vendeur.
   - Si oui : le type + numéro s’affiche.
   - Si non : un message d’erreur clair est affiché.
+- Le numéro de réchaud scanné s'affichera comme une liste dans le cadre
+- Le vendeur peut scanner ou vendre seulement les réchauds dans sa liste de stock
+- Chaque réchaud doit être associé à un prix et une zone (zone riche, zone moyen, zone LNOB) pour être validé
+- Chaque zone doit avoir des régions différentes
+- Chaque type de réchaud a un prix différent selon la zone
+  - Exemple :
+    - Zone riche : OLI-c = 20 000 Ar
+    - Zone moyenne : OLI-c = 18 000 Ar
+    - Zone LNOB : OLI-c = 16 000 Ar
+- Un client peut acheter plusieurs réchauds du même type ou de types différents
+- En bas du cadre, un tableau montre :
+  - Le type de réchaud
+  - Le prix unitaire de chaque type
+  - Le nombre de réchauds que le client a achetés
+  - Le total (prix unitaire × nombre de réchauds)
+- Cliquez le bouton **"Valider"** pour continuer
 
 #### Tableau récapitulatif :
 
@@ -367,7 +383,7 @@ Le vendeur peut scanner plusieurs réchauds, même de types différents.
 ⚠️ **Note** : Le prix dépend de la zone géographique du client.  
 Zones disponibles :
 
-- Zone forte
+- Zone riche
 - Zone moyenne
 - Zone LNOB
 
@@ -415,33 +431,56 @@ Cliquez sur **Enregistrer** pour finaliser la vente.
 - **Non synchronisé** : Badge orange avec le texte "Non synchronisé"
 - Le badge sur l'icône "Ventes" dans la barre de navigation indique le nombre de ventes non synchronisées
 
+## 🧾 Guide complet pour la création d’une vente directe
 
+Voici une vue d’ensemble des étapes à suivre pour effectuer une vente directe dans l’application **Lemadio** :
 
+1. **Accéder à la page des ventes**  
+   Cliquez sur le bouton rond vert avec l’icône « + » et sélectionnez l’option **Vente directe**.
 
+2. **Remplir les informations client**  
+   Saisissez les données du client dans la **page d’information client** : nom, contact, adresse, localisation, etc.
+
+3. **Sélectionner le numéro de facture**  
+   Choisissez un numéro de facture disponible dans la **page de sélection**.
+
+4. **Vérifier les informations client**  
+   Confirmez avec le client que toutes les données saisies sont correctes dans la **page de vérification**.
+
+5. **Scanner le réchaud**  
+   Utilisez la **page de scan** pour enregistrer le(s) réchaud(s) acheté(s) via le code-barres.
+
+6. **Accepter les conditions de garantie et signer**  
+   Lisez les **conditions de garantie**, cochez la case d’acceptation, puis demandez au client de signer dans le **cadre de signature**.
 
 ## Processus pour vente revendeur
 
-C'est la vente dedié au revendeur d'ADES. C'est à dire, des boutiques ou autre qui revende les réchauds avec des prix différente. Ils font un approvisionnement chez le point de vente ADES puis revendre les réchauds. L'application Lemadio peut gerer aussi la vente revendeur en chosisant l'option "vente revendeur".
+C'est la vente dedié au revendeur d'ADES qui va faire une approvisionnement. C'est à dire, des boutiques ou autre qui revende les réchauds avec des prix différente. Ils font un approvisionnement chez le centre de vente ADES puis revendre les réchauds. L'application Lemadio peut gerer aussi la vente revendeur en chosisant l'option "vente revendeur".
 
-### Étape 3 : Sélectionner le numéro de facture
+### Sélectionner le numéro de facture
 
 Cette page affiche la liste des numéros de facture liés au centre de vente. Il suffit de sélectionner un numéro puis cliquer le bouton valider.
 
-### Étape 4 : Page de vérification d'information client
+### Sélectionner le révendeur
 
-Vérifiez toutes les informations saisies avant de continuer.
+Cette page affiche la liste des revendeurs lié au centre de vente. Alors, le vendeur selectionne le revendeur qui va faire l'approvisionnement puis "VALIDER".
 
 #### Étape 5 : Scanner les numéros de réchauds
 
-- Cliquez le bouton arrondi dans le cadre jaune en bas à droite pour scanner le réchaud
+- Cliquez le bouton arrondi dans le cadre jaune en bas à droite pour lancer le scanner
+- Scannez le **code-barres** du réchaud.
+- Le système vérifie si le numéro scanné existe dans le stock du vendeur.
+  - Si oui : le type + numéro s’affiche.
+  - Si non : un message d’erreur clair est affiché.
 - Le numéro de réchaud scanné s'affichera comme une liste dans le cadre
 - Le vendeur peut scanner ou vendre seulement les réchauds dans sa liste de stock
 - Chaque réchaud doit être associé à un prix et une zone (zone riche, zone moyen, zone LNOB) pour être validé
 - Chaque zone doit avoir des régions différentes
 - Chaque type de réchaud a un prix différent selon la zone
   - Exemple :
-    - Zone riche : OLI-c = 21 000 Ar
-    - Zone pauvre : OLI-c = 15 000 Ar
+    - Zone riche : OLI-c = 20 000 Ar
+    - Zone moyenne : OLI-c = 18 000 Ar
+    - Zone LNOB : OLI-c = 16 000 Ar
 - Un client peut acheter plusieurs réchauds du même type ou de types différents
 - En bas du cadre, un tableau montre :
   - Le type de réchaud
@@ -450,23 +489,82 @@ Vérifiez toutes les informations saisies avant de continuer.
   - Le total (prix unitaire × nombre de réchauds)
 - Cliquez le bouton **"Valider"** pour continuer
 
-#### Étape 6 : Page de garantie
+#### Tableau récapitulatif :
 
-**Informations sur la garantie :**
+- Type de réchaud
+- Prix unitaire
+- Quantité
+- Total
 
-- Chaque réchaud a une garantie d'un an à partir de la date d'achat.
-- La garantie n'inclut pas les conséquences d'une utilisation non appropriée, ni les dommages dus à des actes volontaires.
-- L'ADES ne garantit que l'argile.
-- Lorsque les deux grilles fournies sont hors d'usage, des grilles supplémentaires peuvent être obtenues gratuitement auprès d'un point de vente ADES. Amenez votre reçu et votre carte garantie pour vérification du numéro de série de votre foyer amélioré.
-- Tous les droits sur les certificats CO2 restent chez ADES.
+Le vendeur peut scanner plusieurs réchauds, même de types différents.
 
-**Actions :**
+⚠️ **Note** : Le prix dépend de la zone géographique du client.  
+Zones disponibles :
 
-- Cochez la case **"J'accepte de céder le droit de ce dossier pour signer"**
-- Faites signer le client sur l'application (signature tactile)
-- Cliquez **"Enregistrer"** pour terminer la vente
+- Zone riche
+- Zone moyenne
+- Zone LNOB
 
-#### Résultat de la vente
+---
+
+### 🛡️ Page des conditions de garantie
+
+Conditions affichées :
+
+- Garantie d’un an sur le bon fonctionnement.
+- Exclusion des dommages dus à une mauvaise utilisation.
+- Garantie limitée à l’argile.
+- Grilles supplémentaires disponibles gratuitement sur présentation du reçu.
+- Les certificats CO₂ restent la propriété d’ADES.
+
+#### Signature du client :
+
+- Cochez la case « J’accepte de céder le droit de ce dossier ».
+- Un cadre de signature s’affiche en bas.
+- Le client signe dans le **signature pad**.
+- Une icône poubelle permet d’effacer et recommencer.
+
+Cliquez sur **Enregistrer** pour finaliser la vente.
+
+---
+
+## 🧾 Guide complet pour la création d’une vente revendeur
+
+Voici une vue d’ensemble des étapes à suivre pour effectuer une vente revendeur dans l’application **Lemadio** :
+
+1. **Accéder à la page des ventes**  
+   Cliquez sur le bouton rond vert avec l’icône « + » et sélectionnez l’option **Vente revendeur**.
+
+2. **Sélectionner le numéro de facture**  
+   Choisissez un numéro de facture disponible dans la **page de sélection**.
+
+3. **Sélectionner le revendeur**  
+   Choisissez le revendeur qui fait l'approvisionnement.
+
+4. **Vérifier les informations revendeur**  
+   Confirmez avec le client que toutes les données saisies sont correctes dans la **page de vérification**.
+
+5. **Scanner le réchaud**  
+   Utilisez la **page de scan** pour enregistrer le(s) réchaud(s) acheté(s) via le code-barres.
+
+6. **Accepter les conditions de garantie et signer**  
+   Lisez les **conditions de garantie**, cochez la case d’acceptation, puis demandez au client de signer dans le **cadre de signature**.
+
+---
+
+## La difference entre la vente directe et vente revendeur
+
+voici chaque chemin:
+
+**Vente direct**: page de vente --> page d'information client --> page selectionner un numéro facture --> page de verification l'information client --> page scanner réchaud --> page de condition de garantie (liste de condition de garantie + signature)
+
+**Vente revendeur**: page de vente --> page selectionner un numéro facture --> page selectionner le revendeur --> page scanner réchaud --> page de condition de garantie (liste de condition de garantie + signature)
+
+---
+
+---
+
+## Résultat de la vente
 
 **Si la vente réussit :**
 
@@ -485,7 +583,8 @@ Vérifiez toutes les informations saisies avant de continuer.
 
 ---
 
-## 4. Annuler une vente
+
+## Annuler une vente
 
 **Processus d'annulation :**
 
@@ -498,7 +597,7 @@ Vérifiez toutes les informations saisies avant de continuer.
 
 ---
 
-## 5. Types de réchauds chez ADES
+## Types de réchauds chez ADES
 
 L'ADES commercialise différents types de réchauds et poêles :
 
@@ -513,7 +612,7 @@ L'ADES commercialise différents types de réchauds et poêles :
 
 ---
 
-## 7. Déconnexion
+## Déconnexion
 
 **Étapes pour se déconnecter :**
 
@@ -524,7 +623,7 @@ L'ADES commercialise différents types de réchauds et poêles :
 
 ---
 
-## 8. Messages d'erreur et solutions
+## Messages d'erreur et solutions
 
 | Message d'erreur              | Cause                         | Solution                                         |
 | ----------------------------- | ----------------------------- | ------------------------------------------------ |
@@ -537,7 +636,7 @@ L'ADES commercialise différents types de réchauds et poêles :
 
 ---
 
-## 9. Dépannage
+## Dépannage
 
 ### L'application ne démarre pas
 
@@ -584,10 +683,10 @@ L'ADES commercialise différents types de réchauds et poêles :
 
 ---
 
-## 10. FAQ (Foires Aux Questions)
+## FAQ (Foires Aux Questions)
 
 **Q : Peut-on modifier une vente après l'avoir enregistrée ?**
-R : Non, pas directement dans l'application. Contactez le responsable du point de vente pour toute modification.
+R : Non, pas directement dans l'application. Contactez le responsable du centre de vente pour toute modification.
 
 **Q : Quel est le délai de confirmation d'une vente ?**
 R : La vente est enregistrée instantanément sur Salesforce si vous avez une connexion internet. Sinon, le vendeur le synchronisé manuelement plus tard.
@@ -611,7 +710,7 @@ R : Non, chaque application est liée à un seul compte vendeur. Après la premi
 R : Ce sont des zones de tarification différentes selon la région. Chaque zone a des prix différents pour les mêmes réchauds. Le prix est automatiquement appliqué selon la région du client.
 
 **Q : Comment obtenir plus de numéros de facture ?**
-R : Contactez le responsable de votre point de vente ou l'administrateur pour obtenir de nouveaux numéros de facture.
+R : Contactez le responsable de votre centre de vente ou l'administrateur pour obtenir de nouveaux numéros de facture.
 
 **Q : La garantie couvre-t-elle tout ?**
 R : Non, la garantie ne couvre que l'argile du réchaud. Elle ne couvre pas les dommages dus à une mauvaise utilisation ou à des actes volontaires. La garantie est valable un an à partir de la date d'achat.
